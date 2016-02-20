@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="Avengers">
+
+<head>
+    <title>The Avengers</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="base.css">
+    
+</head>
+
+<body ng-controller="mainController">
+    <h1 class="main-header"> Meet the Avengers</h1>
+                        <div class="group">
+    <input type="text" required ng-model="myFilter">
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label>Filter by...</label>
+</div>
+           <div class="container">
+          <div class="heroCard" ng-repeat="hero in heroes | filter:{name:myFilter}">
+          
+            
+                <h3 class="heroName">{{hero.name}}</h3>
+                <h4 class="description">Description</h4>
+                <p class="description-text">{{hero.description}}</p>
+                <div class="hero-image">
+                    <img ng-src="{{ hero.thumbnail.path }}.{{ hero.thumbnail.extension }}"/>
+
+                </div>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+        <script src="app.js"></script>
+        <script src="mainController.js"></script>        
+        <script src="dataService.js"></script>
+
+</body>
+
+</html>
